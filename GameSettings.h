@@ -11,12 +11,15 @@ private:
 	int cellSize = 30;
 	int cellCount = 25;
 	int gameFPS{ 60 };
+	// Time handling
+	double lastUpdateTime{ 0 };
 public:
 	static GameSettings& getInstance();
 	Color getColor(std::string colorName) const;
 	int getCellSize() const;
 	int getCellCount() const;
 	void initGameWindow();
+	bool eventTriggered(double interval);
 private:
 	GameSettings();
 

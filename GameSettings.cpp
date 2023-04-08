@@ -38,4 +38,15 @@ void GameSettings::initGameWindow()
     SetTargetFPS(gameFPS);
 }
 
+bool GameSettings::eventTriggered(double interval)
+{
+    double currentTime{ GetTime() };
+    if (currentTime - lastUpdateTime >= interval)
+    {
+        lastUpdateTime = currentTime;
+        return true;
+    }
+    return false;
+}
+
 

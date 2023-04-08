@@ -2,13 +2,13 @@
     RetroSnake
     Learning C++ while using Raylib
     Source: https://www.youtube.com/watch?v=LGqsnM_WEK4
+    Notice: Mostly modified 
 */ 
 
 #include <iostream>
 #include <raylib.h>
-#include "Food.h"
 #include "GameSettings.h"
-
+#include "GameClass.h"
 
 int main()
 {
@@ -17,17 +17,24 @@ int main()
     GameSettings& gameSettings = GameSettings::getInstance();
     // Starting init window with right parameters
     gameSettings.initGameWindow();
-    // Create Food object
-    Food food;
+
+    GameClass game = GameClass();
+
 
     // Run game until game closed
     while (WindowShouldClose() == false)
     {
         BeginDrawing();
+        if (gameSettings.eventTriggered(0.2))
+        {
+            game.Update();
+        }
+
+        game.Move(IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_DOWN) || IsKeyReleased(KEY_RIGHT) || IsKeyPressed(KEY_LEFT));
 
         // Drawing
         ClearBackground(gameSettings.getColor("green"));
-        food.Draw();
+        game.Draw();
 
         EndDrawing();
     }
