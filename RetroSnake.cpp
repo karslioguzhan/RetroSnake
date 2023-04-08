@@ -13,8 +13,8 @@
 int main()
 {
     std::cout << "Staring the Game\n";
-    // Creating object with all necessary Settings
-    GameSettings gameSettings;
+    // Get Instance from GameSettings
+    GameSettings& gameSettings = GameSettings::getInstance();
     // Starting init window with right parameters
     gameSettings.initGameWindow();
     // Create Food object

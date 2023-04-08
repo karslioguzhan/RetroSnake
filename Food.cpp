@@ -1,5 +1,5 @@
 #include "Food.h"
-GameSettings gameSettings;
+
 
 Food::Food()
 {
@@ -12,6 +12,7 @@ Food::Food()
 
 Vector2 Food::generateRandomPosition()
 {
+	GameSettings& gameSettings = GameSettings::getInstance();
 	float x{static_cast<float> (GetRandomValue(0, gameSettings.getCellCount() - 1))};
 	float y{static_cast<float> (GetRandomValue(0, gameSettings.getCellCount() - 1))};
 	return Vector2{ x, y };
@@ -19,6 +20,7 @@ Vector2 Food::generateRandomPosition()
 
 void Food::Draw()
 {
+	GameSettings& gameSettings = GameSettings::getInstance();
 	DrawTexture(texture, position.x * gameSettings.getCellSize(), position.y * gameSettings.getCellSize(), WHITE);
 }
 

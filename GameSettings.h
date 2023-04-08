@@ -1,6 +1,7 @@
 #pragma once
 #include <raylib.h>
 #include <iostream>
+// As Singleton
 class GameSettings
 {
 private:
@@ -11,10 +12,13 @@ private:
 	int cellCount = 25;
 	int gameFPS{ 60 };
 public:
+	static GameSettings& getInstance();
 	Color getColor(std::string colorName) const;
 	int getCellSize() const;
 	int getCellCount() const;
 	void initGameWindow();
+private:
+	GameSettings();
 
 
 };
