@@ -5,11 +5,12 @@
 class GameSettings
 {
 private:
-	Color green = { 173, 204, 96, 255 };
-	Color darkGreen = { 43, 51, 24, 255 };
+	Color blue{SKYBLUE};
+	Color darkBlue{DARKBLUE};
 	// Grid definition
-	int cellSize = 30;
-	int cellCount = 25;
+	int cellSize{ 30 };
+	int cellCount{ 25 };
+	int offset{ 75 };
 	int gameFPS{ 60 };
 	// Time handling
 	double lastUpdateTime{ 0 };
@@ -20,6 +21,8 @@ public:
 	int getCellCount() const;
 	void initGameWindow();
 	bool eventTriggered(double interval);
+	void drawBorders();
+	int getOffset();
 private:
 	GameSettings();
 

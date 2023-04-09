@@ -15,11 +15,11 @@ GameSettings& GameSettings::getInstance()
 
 Color GameSettings::getColor(std::string colorName) const
 {
-    if (colorName == "green")
+    if (colorName == "blue")
     {
-        return green;
+        return blue;
     }
-    return darkGreen;
+    return darkBlue;
 }
 
 int GameSettings::getCellSize() const
@@ -34,7 +34,7 @@ int GameSettings::getCellCount() const
 
 void GameSettings::initGameWindow()
 {
-    InitWindow(cellSize * cellCount, cellSize * cellCount, "Retro Snake");
+    InitWindow(2*offset+cellSize * cellCount, 2 * offset+cellSize * cellCount, "Retro Snake");
     SetTargetFPS(gameFPS);
 }
 
@@ -47,6 +47,17 @@ bool GameSettings::eventTriggered(double interval)
         return true;
     }
     return false;
+}
+
+void GameSettings::drawBorders()
+{
+    Rectangle borders{ static_cast<float>(offset) - 5, static_cast<float>(offset) - 5, cellSize * cellCount + 10, cellSize * cellCount + 10 };
+    DrawRectangleLinesEx(borders, 5, darkBlue);
+}
+
+int GameSettings::getOffset()
+{
+    return offset;
 }
 
 

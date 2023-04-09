@@ -35,9 +35,9 @@ int main()
         game.Move(IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_DOWN) || IsKeyReleased(KEY_RIGHT) || IsKeyPressed(KEY_LEFT));
 
         // Drawing
-        ClearBackground(gameSettings.getColor("green"));
+        ClearBackground(gameSettings.getColor("blue"));
         game.Draw();
-
+        gameSettings.drawBorders();
         EndDrawing();
     }
 

@@ -13,6 +13,8 @@ public:
 	void Draw();
 	void Update();
 	Vector2 direction{ 1, 0 };
+	bool addSegment{ false };
+	void Reset();
 private:
 	Snake() {};
 

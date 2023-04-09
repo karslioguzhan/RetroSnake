@@ -34,7 +34,7 @@ Vector2 Food::generateRandomPosition()
 void Food::Draw()
 {
 	GameSettings& gameSettings = GameSettings::getInstance();
-	DrawTexture(texture, position.x * gameSettings.getCellSize(), position.y * gameSettings.getCellSize(), WHITE);
+	DrawTexture(texture, gameSettings.getOffset() + position.x * gameSettings.getCellSize(), gameSettings.getOffset() + position.y * gameSettings.getCellSize(), WHITE);
 }
 
 Food::~Food()
