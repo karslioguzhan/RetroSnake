@@ -8,9 +8,10 @@ public:
     // Create Food object
     Food food;
     // Create Snake object
-    Snake snake = Snake();
+    Snake& snake = Snake::GetInstance();
     void Draw();
     void Update();
     void Move(bool keyPressed);
+    void CheckCollisionWithFood();
 };
 

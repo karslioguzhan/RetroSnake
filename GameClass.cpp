@@ -9,6 +9,7 @@ void GameClass::Draw()
 void GameClass::Update()
 {
 	snake.Update();
+	CheckCollisionWithFood();
 }
 
 void GameClass::Move(bool keyPressed)
@@ -28,5 +29,13 @@ void GameClass::Move(bool keyPressed)
 	if (IsKeyPressed(KEY_RIGHT) && snake.direction.x != -1)
 	{
 		snake.direction = { 1, 0 };
+	}
+}
+
+void GameClass::CheckCollisionWithFood()
+{
+	if (Vector2Equals(snake.body[0], food.position))
+	{
+		food.position = food.generateRandomPosition();
 	}
 }

@@ -1,5 +1,11 @@
 #include "Snake.h"
 
+Snake& Snake::GetInstance()
+{
+	static Snake instance;
+	return instance;
+}
+
 void Snake::Draw()
 {
 	GameSettings& gameSettings = GameSettings::getInstance();
@@ -8,7 +14,7 @@ void Snake::Draw()
 		Rectangle segment = Rectangle{numBody.x * gameSettings.getCellSize(),
 			numBody.y * gameSettings.getCellSize(), static_cast<float> (gameSettings.getCellSize()),
 			static_cast<float> (gameSettings.getCellSize())};
-		DrawRectangleRounded(segment, 0.5, 6, gameSettings.getColor("darkgreen"));
+		DrawRectangleRounded(segment, 0.8, 6, gameSettings.getColor("darkgreen"));
 	}
 }
 

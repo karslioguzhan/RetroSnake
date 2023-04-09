@@ -10,6 +10,8 @@
 #include "GameSettings.h"
 #include "GameClass.h"
 
+
+
 int main()
 {
     std::cout << "Staring the Game\n";
